@@ -37,15 +37,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('api')
-            ->prefix('kahitano')
-                ->group(base_path('routes/kahitano.php'));
+                ->prefix('my-api')
+                    ->group(base_path('routes\my-api.php'));    
 
-            Route::middleware('api')
-                ->prefix('rieza')
-                    ->group(base_path('routes/rieza.php'));    
-
-                    
         });
+        
 
     }
 }

@@ -13,27 +13,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
- 
-Route::get('/greetings', [UserController::class,'index']);
-
- 
-Route::get('/hello', function() {
-    return "hello world";
-});
-
-Route::post('/rie', function() {
-    return "This is my world named riezaq";
-});
-
-
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
-Route::match(['put', 'patch', 'post'], '/updateUserInfo', function() {
+Route::get('/greetings', [UserController::class,'index']);
+
+
+// GET method
+Route::get('/getuser', function() {
+    return "Welcome user";
+});
+
+// POST method
+Route::post('/postuser', function() {
+    return "Post request from user";
+});
+
+// PUT method
+Route::put('/putuser', function() {
+    return "Put request from user";
+});
+
+
+// PATCH method
+Route::patch('/patchuser', function() {
+    return "Patch request from user";
+});
+
+
+// DELETE method
+Route::delete('/deleteuser/{id}', function(){
+    return 'Delete: delete request from users';
+});
+
+
+Route::match(['put', 'patch', 'post'], '/updateUser', function() {
     return "welcome to my World";
 });
 
@@ -44,3 +60,4 @@ Route::any('/any', function () {
 Route::get('/users', function (Request $request) {
     return $request->name . '-'. $request->email;
 });
+
